@@ -4,10 +4,14 @@ import java.awt.event.*;
 
 public class Controlador implements ActionListener, ItemListener{
 
-	private Vista vista;
+	private Vista vista = new Vista();
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		if (vista.getBilleteFamiliar().isSelected()) {
+		
+		//if (vista.getDescuentos())
+		
+		if (e.getSource() == vista.getBilleteFamiliar()) {
+
 			
 		}
 		
@@ -16,7 +20,10 @@ public class Controlador implements ActionListener, ItemListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
+		if (e.getSource() == vista.getCalcular()) {
+			
+			
+		}
 	}
 
 }

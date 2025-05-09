@@ -2,7 +2,6 @@ package billete;
 
 import javax.swing.*;
 import javax.swing.border.*;
-
 import java.awt.*;
 
 public class Vista extends JFrame{
@@ -158,179 +157,27 @@ public class Vista extends JFrame{
 		this.cancelar.addActionListener(ctr);
 		this.vender.addActionListener(ctr);
 	}
-
+	
 	
 	/*
-	 * 
-	 * 
-	 * 
+	 * Metodos getter y setter
 	 */
 	
-	
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	public JCheckBox getBilleteFamiliar() {return billeteFamiliar;}
+
+	public JButton getCalcular() {return calcular;}
+
+	public JButton getCancelar() {return cancelar;}
+
+	public JButton getVender() {return vender;}
 
 	public JLabel getTitulo() {
 		return titulo;
 	}
 
-	public JLabel getX1() {
-		return X1;
-	}
-
-	public JLabel getY1() {
-		return Y1;
-	}
-
-	public JLabel getX2() {
-		return X2;
-	}
-
-	public JLabel getY2() {
-		return Y2;
-	}
-
-	public JLabel getCoordsOrigen() {
-		return coordsOrigen;
-	}
-
-	public JLabel getCoordsDestino() {
-		return coordsDestino;
-	}
-
-	public JLabel getTipoDescuento() {
-		return tipoDescuento;
-	}
-
-	public JLabel getDescuentoAplicar() {
-		return descuentoAplicar;
-	}
-
-	public JLabel getDistancia() {
-		return distancia;
-	}
-
-	public JLabel getPrecioBillete() {
-		return precioBillete;
-	}
-
-	public JTextField getOrigenX() {
-		return origenX;
-	}
-
-	public JTextField getOrigenY() {
-		return origenY;
-	}
-
-	public JTextField getDestinoX() {
-		return destinoX;
-	}
-
-	public JTextField getDestinoY() {
-		return destinoY;
-	}
-
-	public JComboBox<TipoDescuento> getDescuentos() {
-		return descuentos;
-	}
-
-	public JCheckBox getBilleteFamiliar() {
-		return billeteFamiliar;
-	}
-
-	public JButton getCalcular() {
-		return calcular;
-	}
-
-	public JButton getCancelar() {
-		return cancelar;
-	}
-
-	public JButton getVender() {
-		return vender;
-	}
-
 	public void setTitulo(JLabel titulo) {
 		this.titulo = titulo;
 	}
-
-	public void setX1(JLabel x1) {
-		X1 = x1;
-	}
-
-	public void setY1(JLabel y1) {
-		Y1 = y1;
-	}
-
-	public void setX2(JLabel x2) {
-		X2 = x2;
-	}
-
-	public void setY2(JLabel y2) {
-		Y2 = y2;
-	}
-
-	public void setCoordsOrigen(JLabel coordsOrigen) {
-		this.coordsOrigen = coordsOrigen;
-	}
-
-	public void setCoordsDestino(JLabel coordsDestino) {
-		this.coordsDestino = coordsDestino;
-	}
-
-	public void setTipoDescuento(JLabel tipoDescuento) {
-		this.tipoDescuento = tipoDescuento;
-	}
-
-	public void setDescuentoAplicar(JLabel descuentoAplicar) {
-		this.descuentoAplicar = descuentoAplicar;
-	}
-
-	public void setDistancia(JLabel distancia) {
-		this.distancia = distancia;
-	}
-
-	public void setPrecioBillete(JLabel precioBillete) {
-		this.precioBillete = precioBillete;
-	}
-
-	public void setOrigenX(JTextField origenX) {
-		this.origenX = origenX;
-	}
-
-	public void setOrigenY(JTextField origenY) {
-		this.origenY = origenY;
-	}
-
-	public void setDestinoX(JTextField destinoX) {
-		this.destinoX = destinoX;
-	}
-
-	public void setDestinoY(JTextField destinoY) {
-		this.destinoY = destinoY;
-	}
-
-	public void setDescuentos(JComboBox<TipoDescuento> descuentos) {
-		this.descuentos = descuentos;
-	}
-
-	public void setBilleteFamiliar(JCheckBox billeteFamiliar) {
-		this.billeteFamiliar = billeteFamiliar;
-	}
-
-	public void setCalcular(JButton calcular) {
-		this.calcular = calcular;
-	}
-
-	public void setCancelar(JButton cancelar) {
-		this.cancelar = cancelar;
-	}
-
-	public void setVender(JButton vender) {
-		this.vender = vender;
-	}
-	
 	
 	
 }
