@@ -9,11 +9,15 @@ public class Vista extends JFrame{
 	private static final long serialVersionUID = -5475590636657249833L;
 	
 	private JLabel titulo, X1, Y1, X2, Y2;
+	private int numOrigenX = 0, numOrigenY = 0, numDestinoX = 0, numDestinoY = 0;
 	private JLabel coordsOrigen, coordsDestino, tipoDescuento, descuentoAplicar, distancia, precioBillete;
 	private JTextField origenX, origenY, destinoX, destinoY;
-	private JComboBox<TipoDescuento> descuentos;
+	JComboBox<TipoDescuento> descuentos;
 	private JCheckBox billeteFamiliar;
 	private JButton calcular, cancelar, vender;
+	private int porcentaje = 0, precio = 0;
+	private double kilometros = 0;
+	
 	
 	public Vista() {
 		
@@ -51,14 +55,14 @@ public class Vista extends JFrame{
 		
 		this.coordsOrigen = new JLabel("Coordenadas de origen: ");
 		this.X1 = new JLabel("X");
-		this.origenX = new JTextField("0");
+		this.origenX = new JTextField(this.numOrigenX + "");
 		this.Y1 = new JLabel("Y");
-		this.origenY = new JTextField("0");
+		this.origenY = new JTextField(this.numOrigenY + "");
 		this.coordsDestino = new JLabel("Coordenadas de destino: ");
 		this.X2 = new JLabel("X");
-		this.destinoX = new JTextField("0");
+		this.destinoX = new JTextField(this.numDestinoX + "");
 		this.Y2 = new JLabel("Y");
-		this.destinoY = new JTextField("0");
+		this.destinoY = new JTextField(this.numDestinoY + "");
 		
 		origenX.setPreferredSize(new Dimension(40, 20));
 		origenY.setPreferredSize(new Dimension(40, 20));
@@ -99,7 +103,7 @@ public class Vista extends JFrame{
 		this.tipoDescuento = new JLabel("Tipo descuento");
 		this.descuentos = new JComboBox<TipoDescuento>(array);
 		this.billeteFamiliar = new JCheckBox("Billete familiar");
-		this.descuentoAplicar = new JLabel("Descuento a aplicar: 0%");
+		this.descuentoAplicar = new JLabel("Descuento a aplicar: " + this.porcentaje + "%");
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder("Posibles descuentos"));
@@ -114,8 +118,8 @@ public class Vista extends JFrame{
 	
 	private JPanel preparaPanelCalculos() {
 		
-		this.distancia = new JLabel("Distancia: 0.00 km");
-		this.precioBillete = new JLabel("Precio billete: 0 €");
+		this.distancia = new JLabel("Distancia: "+ this.kilometros + " km");
+		this.precioBillete = new JLabel("Precio billete: " + this.precio + " €");
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder("Distancia y precio a pagar"));
@@ -160,7 +164,7 @@ public class Vista extends JFrame{
 	
 	
 	/*
-	 * Metodos getter y setter
+	 * Metodos getter
 	 */
 	
 	public JCheckBox getBilleteFamiliar() {return billeteFamiliar;}
@@ -171,13 +175,130 @@ public class Vista extends JFrame{
 
 	public JButton getVender() {return vender;}
 
-	public JLabel getTitulo() {
-		return titulo;
+	public JLabel getTitulo() {return titulo;}
+
+	public JLabel getDescuentoAplicar() {return descuentoAplicar;}
+
+	public JComboBox<TipoDescuento> getDescuentos() {return descuentos;}
+
+	public int getPorcentaje() {return porcentaje;}
+	
+	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public void setTitulo(JLabel titulo) {
-		this.titulo = titulo;
+	public JLabel getX1() {
+		return X1;
 	}
+
+	public JLabel getY1() {
+		return Y1;
+	}
+
+	public JLabel getX2() {
+		return X2;
+	}
+
+	public JLabel getY2() {
+		return Y2;
+	}
+
+	public JLabel getCoordsOrigen() {
+		return coordsOrigen;
+	}
+
+	public JLabel getCoordsDestino() {
+		return coordsDestino;
+	}
+
+	public JLabel getTipoDescuento() {
+		return tipoDescuento;
+	}
+
+	public JLabel getDistancia() {
+		return distancia;
+	}
+
+	public JLabel getPrecioBillete() {
+		return precioBillete;
+	}
+
+	public JTextField getOrigenX() {
+		return origenX;
+	}
+
+	public JTextField getOrigenY() {
+		return origenY;
+	}
+
+	public JTextField getDestinoX() {
+		return destinoX;
+	}
+
+	public JTextField getDestinoY() {
+		return destinoY;
+	}
+
+	public void setPorcentaje(int porcentaje) {
+		this.porcentaje = porcentaje;
+	}
+
+	public double getKilometros() {
+		return kilometros;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setKilometros(double d) {
+		this.kilometros = d;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public int getNumOrigenX() {
+		return numOrigenX;
+	}
+
+	public int getNumOrigenY() {
+		return numOrigenY;
+	}
+
+	public int getNumDestinoX() {
+		return numDestinoX;
+	}
+
+	public int getNumDestinoY() {
+		return numDestinoY;
+	}
+
+	public void setNumOrigenX(int numOrigenX) {
+		this.numOrigenX = numOrigenX;
+	}
+
+	public void setNumOrigenY(int numOrigenY) {
+		this.numOrigenY = numOrigenY;
+	}
+
+	public void setNumDestinoX(int numDestinoX) {
+		this.numDestinoX = numDestinoX;
+	}
+
+	public void setNumDestinoY(int numDestinoY) {
+		this.numDestinoY = numDestinoY;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

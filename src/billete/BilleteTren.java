@@ -2,107 +2,93 @@ package billete;
 
 public class BilleteTren {
 
-	private Punto coordsOrigen, coordsDestino;
-	private int precio;
-	private double distancia;
-	private TipoDescuento descuento, descuento2;
-	
-	public BilleteTren(int origenX, int origenY, int destinoX, int destinoY, TipoDescuento tipo) {
-		
-		this.coordsOrigen = new Punto(origenX, origenY);
-		this.coordsDestino = new Punto(destinoX, destinoY);
-		this.descuento = tipo;
-	}
+    private Punto coordsOrigen, coordsDestino;
+    private double distancia;
+    private TipoDescuento descuento;
+    private Vista vista;
 
-	public double getPorcentaje() {
+    
+    public BilleteTren(int origenX, int origenY, int destinoX, int destinoY, TipoDescuento tipo) {
+    	
+        this.coordsOrigen = new Punto(origenX, origenY);
+        this.coordsDestino = new Punto(destinoX, destinoY);
+        this.descuento = tipo;
+        this.distancia = calcularDistancia();
+    }
+    
+    public BilleteTren() {
+    	
+    	vista = new Vista();
+    	
+    	this.coordsOrigen = new Punto(vista.getNumOrigenX(), vista.getNumOrigenY());
+    	this.coordsDestino = new Punto(vista.getNumDestinoX(), vista.getNumDestinoY());
+    	this.distancia = calcularDistancia();
+    }
 
-		switch (this.descuento) {
+    private double calcularDistancia() {
+    	
+        int dX = (int) Math.pow((vista.getNumDestinoX() - vista.getNumOrigenX()), 2);
+        int dY = (int) Math.pow(vista.getNumDestinoY() - vista.getNumOrigenY(), 2);
+        
+        return Math.sqrt(dX + dY);
+    }
 
-		case MENOR_7: return 1;
+    public double getPorcentaje() {
+    	
+        return descuento.getDescuento() / 100.0;
+    }
 
-		case MENOR_12: return 0.5;
+    
+    public float calculaPrecio() {
+    	
+        float precioBase;
+        
+        if (distancia <= 20) {
+        	
+            precioBase = (float) (distancia * 0.20);
 
-		case MENOR_18: return 0.25;
+        } else if (distancia <= 50) {
+        	
+            precioBase = (float) (distancia * 0.18);
+            
+        } else {
+        	
+            precioBase = (float) (distancia * 0.16);
+        }
 
-		case UNIVERSITARIO: return 0.40;
+        return (float) (precioBase * (1 - this.getPorcentaje()));
+    }
 
-		case MAYOR_65: return 0.25;
 
-		case DESEMPLEADO: return 0.1;
+    public String getPrecio() {
+    	
+        float coste = this.calculaPrecio();
+        int euros = (int) coste;
+        int centimos = Math.round((coste - euros) * 100);
+        
+        return euros + "€ con " + centimos + " céntimos";
+    }
 
-		default: return 0;
-		}
-	}
-	
-	public float calculaPrecio() {
-		
-		float precio, kilometros = 0;
-		
-		if ((kilometros > 0) && (kilometros <= 20)) {
-			
-			precio = kilometros * 20;
-			
-		} else if (kilometros <= 50) {
-			
-			precio = kilometros * 18;
-			
-		} else {
-			
-			precio = kilometros * 16;
-		}
-		
-		return (float) (precio - (precio * (descuento2.getDescuento() / 100)));
-	}
-	
-	public void deglosar() {
-		
-		
-	}
-	
-	
 
-	public Punto getCoordsOrigen() {
-		return coordsOrigen;
-	}
+    public Punto getCoordsOrigen() {
+        return coordsOrigen;
+    }
 
-	public Punto getCoordsDestino() {
-		return coordsDestino;
-	}
+    public Punto getCoordsDestino() {
+        return coordsDestino;
+    }
 
-	public double getDistancia() {
-		return distancia;
-	}
+    public double getDistancia() {
+        return distancia;
+    }
 
-	public TipoDescuento getDescuento() {
-		return descuento;
-	}
+    public TipoDescuento getDescuento() {
+        return descuento;
+    }
 
-	@Override
-	public String toString() {
-		return "BilleteTren [coordsOrigen=" + coordsOrigen + ", coordsDestino=" + coordsDestino + ", precio=" + precio
-				+ ", distancia=" + distancia + "]";
-	}
-	
-	public String getPrecio() {
-		
-		float coste = this.calculaPrecio();
-		
-		int parteEntera = (int) coste;
-		
-		int parteDecimal = Math.round(coste - parteEntera) * 100;
-		
-		if (parteEntera == coste) {
-			
-			return "";
-			
-		} else if (parteDecimal == coste) {
-			
-			return "";
-		}
-		
-		else return "";
-		
-	}
-	
-	
+    @Override
+    public String toString() {
+    	
+        return "BilleteTren [coordsOrigen=" + coordsOrigen + ", coordsDestino=" + coordsDestino + ", precio=" + getPrecio() + ", distancia=" + distancia + " km]";
+    }
 }

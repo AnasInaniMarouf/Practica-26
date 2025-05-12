@@ -8,6 +8,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Vista vista = new Vista();
+		BilleteTren  billete = new BilleteTren();
+		
+		Controlador ctr = new Controlador(vista, billete);
+		vista.control(ctr);
 		
 		vista.setPreferredSize(new Dimension(600, 400));
 		vista.pack();
