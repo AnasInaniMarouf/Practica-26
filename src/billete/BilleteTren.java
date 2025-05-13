@@ -5,7 +5,6 @@ public class BilleteTren {
     private Punto coordsOrigen, coordsDestino;
     private double distancia;
     private TipoDescuento descuento;
-    private Vista vista;
 
     
     public BilleteTren(int origenX, int origenY, int destinoX, int destinoY, TipoDescuento tipo) {
@@ -15,22 +14,10 @@ public class BilleteTren {
         this.descuento = tipo;
         this.distancia = calcularDistancia();
     }
-    
-    public BilleteTren() {
-    	
-    	vista = new Vista();
-    	
-    	this.coordsOrigen = new Punto(vista.getNumOrigenX(), vista.getNumOrigenY());
-    	this.coordsDestino = new Punto(vista.getNumDestinoX(), vista.getNumDestinoY());
-    	this.distancia = calcularDistancia();
-    }
 
-    private double calcularDistancia() {
+    public double calcularDistancia() {
     	
-        int dX = (int) Math.pow((vista.getNumDestinoX() - vista.getNumOrigenX()), 2);
-        int dY = (int) Math.pow(vista.getNumDestinoY() - vista.getNumOrigenY(), 2);
-        
-        return Math.sqrt(dX + dY);
+        return coordsOrigen.distancia(coordsDestino);
     }
 
     public double getPorcentaje() {

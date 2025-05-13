@@ -34,8 +34,27 @@ public class Controlador implements ActionListener, ItemListener{
 		
 		if (e.getSource() == vista.getCalcular()) {
 			
-			vista.setKilometros(this.billeteTren.getDistancia());
+			int origenX = Integer.parseInt(vista.getOrigenX().getText());
+			int origenY = Integer.parseInt(vista.getOrigenY().getText());
+			int destinoX = Integer.parseInt(vista.getDestinoX().getText());
+			int destinoY = Integer.parseInt(vista.getDestinoY().getText());
+			
+			billeteTren = new BilleteTren(origenX, origenY, destinoX, destinoY, TipoDescuento.SIN_DESCUENTO);
+			
+			billeteTren.getDistancia();
+			
 			vista.getDistancia().setText("Distancia: "+ vista.getKilometros() + " km");
+			vista.getPrecioBillete().setText("Precio: " + vista.getPrecio() + " €");
+			
+			/*
+			vista.setNumOrigenX(Integer.parseInt(vista.getOrigenX().getText()));
+			vista.setNumOrigenY(Integer.parseInt(vista.getOrigenY().getText()));
+			vista.setNumDestinoX(Integer.parseInt(vista.getDestinoX().getText()));
+			vista.setNumDestinoY(Integer.parseInt(vista.getDestinoY().getText()));
+			
+			vista.setKilometros(this.billeteTren.calcularDistancia());
+			vista.getDistancia().setText("Distancia: "+ vista.getKilometros() + " km");
+			*/
 		}
 		
 		if (e.getSource() == vista.getCancelar()) {
