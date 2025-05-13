@@ -41,9 +41,11 @@ public class Controlador implements ActionListener, ItemListener{
 			
 			billeteTren = new BilleteTren(origenX, origenY, destinoX, destinoY, TipoDescuento.SIN_DESCUENTO);
 			
-			billeteTren.getDistancia();
+			System.out.println(billeteTren.toString());
 			
-			vista.getDistancia().setText("Distancia: "+ vista.getKilometros() + " km");
+			int distancia = (int) billeteTren.getDistancia();
+			
+			vista.getDistancia().setText("Distancia: "+ billeteTren.getDistancia() + " km");
 			vista.getPrecioBillete().setText("Precio: " + vista.getPrecio() + " €");
 			
 			/*

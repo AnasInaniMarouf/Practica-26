@@ -5,7 +5,6 @@ public class BilleteTren {
     private Punto coordsOrigen, coordsDestino;
     private double distancia;
     private TipoDescuento descuento;
-
     
     public BilleteTren(int origenX, int origenY, int destinoX, int destinoY, TipoDescuento tipo) {
     	
@@ -17,7 +16,9 @@ public class BilleteTren {
 
     public double calcularDistancia() {
     	
-        return coordsOrigen.distancia(coordsDestino);
+    	int distancia = 0;
+    	
+        return distancia;
     }
 
     public double getPorcentaje() {
