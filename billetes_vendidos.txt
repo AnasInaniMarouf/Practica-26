@@ -1,0 +1,7 @@
+Billete de tren:
+Origen: (12.0, 12.0)
+Destino: (1.0, 1212.0)
+Distancia: 1200,05 km
+Tipo de descuento: Ninguno (0.0%)
+Precio final: 193€ con 56 céntimos
+
